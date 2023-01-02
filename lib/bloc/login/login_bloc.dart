@@ -11,8 +11,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginEvent>((event, emit) {
     });
 
-    on<LoggedInEvent>((event, emit) async{
-      emit(LoggedInState());
+    on<LogInEvent>((event, emit) async{
+
     });
 
   }

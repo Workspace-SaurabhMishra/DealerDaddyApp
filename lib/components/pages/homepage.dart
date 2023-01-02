@@ -1,11 +1,11 @@
 import 'package:cardup/modules/utilities.dart';
 import 'package:cardup/statics.dart';
-import 'package:cardup/webview.dart';
+import 'package:cardup/inapp_browser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(217, 19, 90, 1),
+      backgroundColor: Colors.black,
       body: Align(
         alignment: Alignment.topCenter,
         child: ListView(children: [
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             children: List.generate(availablePlatforms.length, (index) {
               return InkWell(
                 onTap: () async{
-                  webview().browser.openUrlRequest(
+                  MyInAppBrowser().openUrlRequest(
                       urlRequest: URLRequest(url: Uri.parse(availablePlatforms[index]["website"])),
                       options: options
                   );

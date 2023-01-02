@@ -11,9 +11,7 @@ Map apiStore = {
   "mobileOTPVerification":"http://$host/mobile/verification",
   "emailSubmit":'http://$host/email/submission',
   "emailOtpVerification":"http://$host/email/verification",
-  "setPassword":"https://registration-verification-service-anmp6fzngq-uc.a.run.app/registration/v1/set/password",
-  "login":'https://registration-verification-service-anmp6fzngq-uc.a.run.app/registration/v1/login',
-  "submitDetails":'https://registration-verification-service-anmp6fzngq-uc.a.run.app/registration/v1/enter/details',
+  "login":'http://$host/signin',
 };
 
 Future getSessionId() async{
@@ -54,7 +52,6 @@ Future emailSubmit(String email) async{
   });
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
-  store.set("email",email);
   return response;
 }
 
@@ -112,8 +109,8 @@ Future login(username,password) async{
   };
   var request = http.Request('POST', Uri.parse(apiStore["login"]));
   request.body = json.encode({
-    "email_address": "$username",
-    "email_password": "$password"
+    "username": "$username",
+    "password": "$password"
   });
   request.headers.addAll(headers);
 

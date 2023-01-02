@@ -18,21 +18,27 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final TextEditingController textEditingController = TextEditingController();
 
+  void handleLogin(context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+      return const HomePage();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           decoration: const BoxDecoration(
-            color: Color.fromRGBO(217, 19, 90, 10),
+            color: Colors.black,
           ),
           height: getHeight(context),
           child: Align(
             alignment: Alignment.topCenter,
             child: SizedBox(
-              width: getWidth(context) * 0.8,
+              width: getWidth(context),
               child: Image.asset(
-                "assets/images/dd_logo_white.png",
+                "assets/images/DD.png",
               ),
             ),
           ),
@@ -40,17 +46,16 @@ class _LoginFormState extends State<LoginForm> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: getHeight(context) * 0.7,
+            height: getHeight(context) * 0.6,
             width: getWidth(context),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20)),
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               boxShadow: [
                 BoxShadow(
                     color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
               ],
-              color: Colors.white,
+              color: Colors.black,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -71,7 +76,8 @@ class _LoginFormState extends State<LoginForm> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 50),
                         child: customTextField(
-                          controller: textEditingController,
+                          onSaved: (){},
+                            controller: textEditingController,
                             cursorColor: Colors.white,
                             cursorWidth: 15,
                             textColor: Colors.white,
@@ -94,7 +100,10 @@ class _LoginFormState extends State<LoginForm> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 50),
                         child: customTextField(
-                          controller: textEditingController,
+                          onSaved: () {
+
+                          },
+                            controller: textEditingController,
                             cursorColor: Colors.white,
                             cursorWidth: 15,
                             textColor: Colors.white,
@@ -107,39 +116,19 @@ class _LoginFormState extends State<LoginForm> {
                     SizedBox(
                       height: getHeight(context) * 0.02,
                     ),
-                    InkWell(
-                      onTap: () {
-                        //TODO: forgot password
-                        debugPrint("Clicked Forgot Password");
-                      },
-                      child: const Text(
-                        "Forgot Password ?",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 20
-                          // fontFamily: FontFam
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: getHeight(context) * 0.03,
-                    ),
                     SizedBox(
                       width: getWidth(context) * 0.3,
                       height: getHeight(context) * 0.05,
                       child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor:
-                            MaterialStateProperty.all<Color>(
+                            backgroundColor: MaterialStateProperty.all<Color>(
                                 const Color.fromRGBO(217, 19, 90, 1)),
-                            shape:
-                            MaterialStateProperty.all<OutlinedBorder>(
+                            shape: MaterialStateProperty.all<OutlinedBorder>(
                                 RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(10))),
+                                    borderRadius: BorderRadius.circular(10))),
                           ),
                           onPressed: () {
+                            handleLogin(context);
                           },
                           child: const Text(
                             "Login",
@@ -152,36 +141,40 @@ class _LoginFormState extends State<LoginForm> {
                           )),
                     ),
                     SizedBox(
-                      height: getHeight(context) * 0.02,
+                      height: getHeight(context) * 0.03,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        //TODO: forgot password
+                        debugPrint("Clicked Forgot Password");
+                      },
+                      child: const Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15
+                          // fontFamily: FontFam
+                        ),
+                      ),
                     ),
                     SizedBox(
-                      width: getWidth(context) * 0.3,
-                      height: getHeight(context) * 0.05,
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                            MaterialStateProperty.all<Color>(
-                                const Color.fromRGBO(217, 19, 90, 1)),
-                            shape:
-                            MaterialStateProperty.all<OutlinedBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(10))),
-                          ),
-                          onPressed: () {
-                            widget.liquidController.animateToPage(
-                                page: widget.liquidController.currentPage + 1,
-                                duration: 250);
-                          },
-                          child: const Text(
-                            "SignUp",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 20
-                              // fontFamily: FontFam
-                            ),
-                          )),
+                      height: getHeight(context) * 0.01,
+                    ),
+                    InkWell(
+                      onTap: (){
+                        widget.liquidController.animateToPage(
+                            page: widget.liquidController.currentPage + 1,
+                            duration: 250);
+                      },
+                        child: const Text(
+                          "Don't have an account? SIGNUP",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15
+                            // fontFamily: FontFam
+                          ),)
                     ),
                   ],
                 ),

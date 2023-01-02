@@ -22,8 +22,8 @@ class EntryPage extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         body: BlocProvider(
-          create: (context) => SignUpBloc(),
-          child: BlocListener<SignUpBloc, SignupState>(
+          create: (context) => SignupBloc(),
+          child: BlocListener<SignupBloc, SignupState>(
             listener: (context, state) {
               if (state is NetworkErrorState) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error)));

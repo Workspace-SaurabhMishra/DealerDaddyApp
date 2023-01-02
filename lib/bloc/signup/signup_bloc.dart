@@ -10,20 +10,21 @@ import 'package:http/http.dart';
 part 'signup_event.dart';
 part 'signup_state.dart';
 
-class SignUpBloc extends Bloc<SignupEvent, SignupState> {
-  SignUpBloc() : super(SignupInitial()) {
+class SignupBloc extends Bloc<SignupEvent, SignupState> {
+  SignupBloc() : super(SignupInitial()) {
 
     on<SubmitEmailEvent>((event,emit) async{
       StreamedResponse sessionIdResponse = await getSessionId();
       String sessionId = jsonDecode(await sessionIdResponse.stream.bytesToString())["response"];
       store.set("session_id",sessionId);
+      print("sessionID $sessionId");
       StreamedResponse httpResponse = await emailSubmit(event.email);
       if (httpResponse.statusCode != 200){
-        var x = await httpResponse.stream.bytesToString();
-        print(x);
-        var errorJson =  json.decode(x);
+        var response = await httpResponse.stream.bytesToString();
+        print(response);
+        var errorJson =  json.decode(response);
         print(errorJson["response"]);
-        emit(NetworkErrorState(error: x));
+        emit(NetworkErrorState(error: errorJson["response"]));
         print(httpResponse.statusCode);
       }
     });
@@ -63,6 +64,10 @@ class SignUpBloc extends Bloc<SignupEvent, SignupState> {
         emit(MobileOtpVerifiedState());
       }
 
+    });
+    
+    on<NetworkErrorEvent>((event, emit) async{
+      emit(NetworkErrorState(error: event.error));
     });
   }
 }
