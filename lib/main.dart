@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cardup/components/organisms/email_form.dart';
 import 'package:cardup/components/organisms/password_form.dart';
 import 'package:cardup/components/pages/email_otp.dart';
@@ -15,7 +13,6 @@ void main(){
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
       MaterialApp(
-          // home: PasswordForm(liquidController: LiquidController(),)
           home: EntryPage()
       )
   );

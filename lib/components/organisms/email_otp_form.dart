@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 
+import '../../color_pallet.dart';
+
 class EmailOtpForm extends StatelessWidget {
   final LiquidController liquidController;
   List otpControllers = [];
@@ -100,8 +102,8 @@ class EmailOtpForm extends StatelessWidget {
                       ),
                       keyboardType: TextInputType.number,
                       focusedBorderColor: Colors.white,
-                      borderColor: const Color.fromRGBO(217, 19, 90, 1),
-                      enabledBorderColor: const Color.fromRGBO(217, 19, 90, 1),
+                      borderColor: buttonColor,
+                      enabledBorderColor: buttonColor,
                       cursorColor: Colors.white,
                     ),
                     SizedBox(
@@ -127,7 +129,7 @@ class EmailOtpForm extends StatelessWidget {
                           style: ButtonStyle(
                             backgroundColor:
                             MaterialStateProperty.all<Color>(
-                                const Color.fromRGBO(217, 19, 90, 1)),
+                                buttonColor),
                             shape: MaterialStateProperty.all<
                                 OutlinedBorder>(
                                 RoundedRectangleBorder(
@@ -153,7 +155,7 @@ class EmailOtpForm extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
-              backgroundColor: const Color.fromRGBO(217, 19, 90, 1),
+              backgroundColor: buttonColor,
               onPressed: (){},
               child: IconButton(
                 onPressed: () {

@@ -3,6 +3,8 @@ import 'package:cardup/components/atoms/all_atoms.dart';
 import 'package:cardup/modules/utilities.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+import '../../color_pallet.dart';
+
 class PasswordForm extends StatelessWidget {
   final LiquidController liquidController;
 
@@ -52,7 +54,7 @@ class PasswordForm extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: const Color.fromRGBO(217, 19, 90, 1),
+                      color: buttonColor,
                     ),
                     width: getWidth(context) * 0.8,
                     child: Padding(
@@ -77,7 +79,7 @@ class PasswordForm extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: const Color.fromRGBO(217, 19, 90, 1),
+                      color: buttonColor,
                     ),
                     width: getWidth(context) * 0.8,
                     child: Padding(
@@ -105,7 +107,7 @@ class PasswordForm extends StatelessWidget {
                     child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                          MaterialStateProperty.all<Color>(const Color.fromRGBO(217, 19, 90, 1),),
+                          MaterialStateProperty.all<Color>(buttonColor,),
                           shape: MaterialStateProperty.all<OutlinedBorder>(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
@@ -129,7 +131,7 @@ class PasswordForm extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
-              backgroundColor: const Color.fromRGBO(217, 19, 90, 1),
+              backgroundColor: buttonColor,
               onPressed: (){},
               child: IconButton(
                 onPressed: () {

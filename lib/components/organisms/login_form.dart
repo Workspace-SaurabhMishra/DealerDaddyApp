@@ -6,6 +6,8 @@ import 'package:cardup/modules/utilities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+import '../../color_pallet.dart';
+
 class LoginForm extends StatefulWidget {
   final LiquidController liquidController;
 
@@ -29,16 +31,19 @@ class _LoginFormState extends State<LoginForm> {
     return Stack(
       children: [
         Container(
-          decoration: const BoxDecoration(
-            color: Colors.black,
+          decoration:  BoxDecoration(
+            color: backgroundColor,
           ),
           height: getHeight(context),
           child: Align(
             alignment: Alignment.topCenter,
-            child: SizedBox(
-              width: getWidth(context),
-              child: Image.asset(
-                "assets/images/DD.png",
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: SizedBox(
+                width: getWidth(context),
+                child: Image.asset(
+                  "assets/images/DD.png",
+                ),
               ),
             ),
           ),
@@ -48,14 +53,14 @@ class _LoginFormState extends State<LoginForm> {
           child: Container(
             height: getHeight(context) * 0.6,
             width: getWidth(context),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30), topRight: Radius.circular(20)),
               boxShadow: [
-                BoxShadow(
-                    color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
+                // BoxShadow(
+                //     color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
               ],
-              color: Colors.black,
+              color: backgroundColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -69,7 +74,7 @@ class _LoginFormState extends State<LoginForm> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: const Color.fromRGBO(217, 19, 90, 1),
+                        color: inputBoxColor,
                       ),
                       width: getWidth(context) * 0.8,
                       child: Padding(
@@ -93,7 +98,7 @@ class _LoginFormState extends State<LoginForm> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: const Color.fromRGBO(217, 19, 90, 1),
+                        color: inputBoxColor,
                       ),
                       width: getWidth(context) * 0.8,
                       child: Padding(
@@ -114,7 +119,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                     ),
                     SizedBox(
-                      height: getHeight(context) * 0.02,
+                      height: getHeight(context) * 0.1,
                     ),
                     SizedBox(
                       width: getWidth(context) * 0.3,
@@ -122,7 +127,7 @@ class _LoginFormState extends State<LoginForm> {
                       child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromRGBO(217, 19, 90, 1)),
+                                buttonColor),
                             shape: MaterialStateProperty.all<OutlinedBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),

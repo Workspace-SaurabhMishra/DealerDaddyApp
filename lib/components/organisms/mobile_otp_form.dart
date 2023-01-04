@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 
+import '../../color_pallet.dart';
+
 class MobileOtpForm extends StatelessWidget {
   final LiquidController liquidController;
   List otpControllers = [];
@@ -92,8 +94,8 @@ class MobileOtpForm extends StatelessWidget {
                       ),
                       keyboardType: TextInputType.number,
                       focusedBorderColor: Colors.white,
-                      borderColor: const Color.fromRGBO(217, 19, 90, 1),
-                      enabledBorderColor: const Color.fromRGBO(217, 19, 90, 1),
+                      borderColor: buttonColor,
+                      enabledBorderColor: buttonColor,
                       cursorColor: Colors.white,
                     ),
                     SizedBox(
@@ -139,7 +141,7 @@ class MobileOtpForm extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: FloatingActionButton(
-                        backgroundColor: const Color.fromRGBO(217, 19, 90, 1),
+                        backgroundColor: buttonColor,
                         onPressed: (){},
                         child: IconButton(
                           onPressed: () {

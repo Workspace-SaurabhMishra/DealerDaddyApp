@@ -5,6 +5,7 @@ import 'package:cardup/modules/utilities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+import '../../color_pallet.dart';
 import '../../modules/state_manager.dart';
 
 class EmailForm extends StatelessWidget {
@@ -49,12 +50,15 @@ class EmailForm extends StatelessWidget {
             color: Colors.black,
           ),
           height: getHeight(context),
-          child: Align(
+          child:  Align(
             alignment: Alignment.topCenter,
-            child: SizedBox(
-              width: getWidth(context),
-              child: Image.asset(
-                "assets/images/DD.png",
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: SizedBox(
+                width: getWidth(context),
+                child: Image.asset(
+                  "assets/images/DD.png",
+                ),
               ),
             ),
           ),
@@ -83,7 +87,7 @@ class EmailForm extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: const Color.fromRGBO(217, 19, 90, 1),
+                    color: inputBoxColor,
                   ),
                   width: getWidth(context) * 0.8,
                   child: Padding(
@@ -124,11 +128,11 @@ class EmailForm extends StatelessWidget {
                 ),
                 SizedBox(
                   width: getWidth(context) * 0.5,
-                  height: getHeight(context) * 0.05,
+                  height: getHeight(context) * 0.07,
                   child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                        MaterialStateProperty.all<Color>(const Color.fromRGBO(217, 19, 90, 1),),
+                        MaterialStateProperty.all<Color>(buttonColor,),
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                             RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
@@ -153,7 +157,7 @@ class EmailForm extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: FloatingActionButton(
-            backgroundColor: const Color.fromRGBO(217, 19, 90, 1),
+            backgroundColor: floatingButtonColor,
               onPressed: (){},
               child: IconButton(
                 onPressed: () {

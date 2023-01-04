@@ -5,6 +5,8 @@ import 'package:cardup/modules/utilities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+import '../../color_pallet.dart';
+
 class MobileForm extends StatelessWidget {
   final LiquidController liquidController;
   final TextEditingController textEditingController = TextEditingController();
@@ -62,7 +64,7 @@ class MobileForm extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: const Color.fromRGBO(217, 19, 90, 1),
+                    color: buttonColor,
                   ),
                   width: getWidth(context) * 0.8,
                   child: Padding(
@@ -95,7 +97,7 @@ class MobileForm extends StatelessWidget {
                       child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(const Color.fromRGBO(217, 19, 90, 1),),
+                                MaterialStateProperty.all<Color>(buttonColor,),
                             shape: MaterialStateProperty.all<OutlinedBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
