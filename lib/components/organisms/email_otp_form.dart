@@ -31,16 +31,19 @@ class EmailOtpForm extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-              color: Colors.black,
+            decoration:  BoxDecoration(
+              color:backgroundColor,
             ),
             height: getHeight(context),
-            child: Align(
+            child:Align(
               alignment: Alignment.topCenter,
-              child: SizedBox(
-                width: getWidth(context) * 0.8,
-                child: Image.asset(
-                  "assets/images/DD.png",
+              child: Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: SizedBox(
+                  width: getWidth(context),
+                  child: Image.asset(
+                    "assets/images/DD.png",
+                  ),
                 ),
               ),
             ),
@@ -48,17 +51,17 @@ class EmailOtpForm extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-                height: getHeight(context) * 0.7,
+                height: getHeight(context) * 0.6,
                 width: getWidth(context),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
+                decoration:  BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
                   boxShadow: [
-                    BoxShadow(
-                        color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
+                    // BoxShadow(
+                    //     color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
                   ],
-                  color: Colors.black,
+                  color: bottomSheetColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -102,8 +105,8 @@ class EmailOtpForm extends StatelessWidget {
                       ),
                       keyboardType: TextInputType.number,
                       focusedBorderColor: Colors.white,
-                      borderColor: buttonColor,
-                      enabledBorderColor: buttonColor,
+                      borderColor: floatingButtonColor,
+                      enabledBorderColor: floatingButtonColor,
                       cursorColor: Colors.white,
                     ),
                     SizedBox(
@@ -120,7 +123,7 @@ class EmailOtpForm extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: getHeight(context) * 0.2,
+                      height: getHeight(context) * 0.1,
                     ),
                     SizedBox(
                       width: getWidth(context) * 0.5,

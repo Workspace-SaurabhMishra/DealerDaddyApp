@@ -31,16 +31,19 @@ class MobileOtpForm extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-              color: Colors.black,
+            decoration:  BoxDecoration(
+              color: backgroundColor,
             ),
             height: getHeight(context),
             child: Align(
               alignment: Alignment.topCenter,
-              child: SizedBox(
-                width: getWidth(context) * 0.8,
-                child: Image.asset(
-                  "assets/images/DD.png",
+              child: Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: SizedBox(
+                  width: getWidth(context),
+                  child: Image.asset(
+                    "assets/images/DD.png",
+                  ),
                 ),
               ),
             ),
@@ -48,17 +51,17 @@ class MobileOtpForm extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-                height: getHeight(context) * 0.7,
+                height: getHeight(context) * 0.6,
                 width: getWidth(context),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                decoration:  BoxDecoration(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
                   ],
-                  color: Colors.black,
+                  color: backgroundColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +71,7 @@ class MobileOtpForm extends StatelessWidget {
                       height: getHeight(context) * 0.05,
                     ),
                     const Text(
-                      "OTP is sent to your number",
+                      "OTP is sent to your number" ,
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -88,14 +91,14 @@ class MobileOtpForm extends StatelessWidget {
                       numberOfFields: 4,
                       fieldWidth: getWidth(context) * 0.1,
                       textStyle: const TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.w800
                       ),
                       keyboardType: TextInputType.number,
                       focusedBorderColor: Colors.white,
-                      borderColor: buttonColor,
-                      enabledBorderColor: buttonColor,
+                      borderColor: floatingButtonColor,
+                      enabledBorderColor: floatingButtonColor,
                       cursorColor: Colors.white,
                     ),
                     SizedBox(
@@ -106,13 +109,13 @@ class MobileOtpForm extends StatelessWidget {
                         "Resend OTP ?",
                         style: TextStyle(
                             fontSize: 15,
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.w400
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: getHeight(context) * 0.3,
+                      height: getHeight(context) * 0.1,
                     ),
                     SizedBox(
                       width: getWidth(context) * 0.5,
@@ -120,13 +123,15 @@ class MobileOtpForm extends StatelessWidget {
                       child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
-                            MaterialStateProperty.all<Color>(Color.fromRGBO(217, 19, 90, 1)),
+                            MaterialStateProperty.all<Color>(buttonColor),
                             shape: MaterialStateProperty.all<OutlinedBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
                           ),
                           onPressed: () {
-                            handleOnPressed(context);
+                            liquidController.animateToPage(
+                                page: liquidController.currentPage + 1,
+                                duration: 150);
                           },
                           child: const Text(
                             "Submit",
@@ -141,7 +146,7 @@ class MobileOtpForm extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: FloatingActionButton(
-                        backgroundColor: buttonColor,
+                        backgroundColor: floatingButtonColor,
                         onPressed: (){},
                         child: IconButton(
                           onPressed: () {

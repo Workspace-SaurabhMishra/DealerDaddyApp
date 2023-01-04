@@ -26,16 +26,19 @@ class MobileForm extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          decoration: const BoxDecoration(
-            color: Colors.black,
+          decoration:  BoxDecoration(
+            color:backgroundColor,
           ),
           height: getHeight(context),
           child: Align(
             alignment: Alignment.topCenter,
-            child: SizedBox(
-              width: getWidth(context) * 0.8,
-              child: Image.asset(
-                "assets/images/DD.png",
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: SizedBox(
+                width: getWidth(context),
+                child: Image.asset(
+                  "assets/images/DD.png",
+                ),
               ),
             ),
           ),
@@ -43,16 +46,16 @@ class MobileForm extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: getHeight(context) * 0.7,
+            height: getHeight(context) * 0.6,
             width: getWidth(context),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
-              ],
-              color: Colors.black,
+            decoration:  BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: const Radius.circular(20)),
+              // boxShadow: const [
+              //    // BoxShadow(
+              //    //    color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
+              // ],
+              color: backgroundColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -64,7 +67,7 @@ class MobileForm extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: buttonColor,
+                    color: inputBoxColor,
                   ),
                   width: getWidth(context) * 0.8,
                   child: Padding(
@@ -86,14 +89,14 @@ class MobileForm extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: getHeight(context) * 0.3,
+                  height: getHeight(context) * 0.1,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: getWidth(context) * 0.5,
-                      height: getHeight(context) * 0.05,
+                      height: getHeight(context) * 0.07,
                       child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
@@ -106,7 +109,7 @@ class MobileForm extends StatelessWidget {
                             handleOnPressed(context);
                           },
                           child: const Text(
-                            "Confirm Phone",
+                            "Send OTP",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,

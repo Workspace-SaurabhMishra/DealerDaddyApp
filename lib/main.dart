@@ -1,3 +1,4 @@
+import 'package:cardup/components/organisms/details_form.dart';
 import 'package:cardup/components/organisms/email_form.dart';
 import 'package:cardup/components/organisms/password_form.dart';
 import 'package:cardup/components/pages/email_otp.dart';
@@ -12,8 +13,8 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-      MaterialApp(
-          home: EntryPage()
+       MaterialApp(
+          home: DetailsForm(liquidController: LiquidController(),)
       )
   );
 }

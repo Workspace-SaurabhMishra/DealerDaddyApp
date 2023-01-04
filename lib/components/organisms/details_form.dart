@@ -5,11 +5,12 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 import '../../color_pallet.dart';
 
-class PasswordForm extends StatelessWidget {
+class DetailsForm extends StatelessWidget {
   final LiquidController liquidController;
 
-  const PasswordForm({required this.liquidController});
-
+  DetailsForm({required this.liquidController});
+  String dropDownValue = "";
+  var items = ["male" , "female"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +73,7 @@ class PasswordForm extends StatelessWidget {
                           textColor: Colors.white,
                           fontWeight: FontWeight.w700,
                           fontSize: 20,
-                          hint: '   Enter Password',
+                          hint: '   Enter Name',
                           hintColor: Colors.white),
                     ),
                   ),
@@ -85,20 +86,12 @@ class PasswordForm extends StatelessWidget {
                       color: inputBoxColor,
                     ),
                     width: getWidth(context) * 0.8,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 50),
-                      child: customTextField(
-                          onSaved: (){
-                          },
-                          controller: TextEditingController(),
-                          cursorColor: Colors.white,
-                          cursorWidth: 15,
-                          textColor: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                          hint: '   Confirm Password',
-                          hintColor: Colors.white),
+                    child: DropdownButton(
+                      value: dropDownValue,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items: items.,
+                      onChanged: (String? newValue) {
+                        },
                     ),
                   ),
                   SizedBox(
@@ -116,9 +109,6 @@ class PasswordForm extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10))),
                         ),
                         onPressed: () {
-                          liquidController.animateToPage(
-                              page: liquidController.currentPage + 1,
-                              duration: 150);
                         },
                         child: const Text(
                           "Submit",

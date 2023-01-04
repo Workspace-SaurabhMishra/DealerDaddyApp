@@ -46,8 +46,8 @@ class EmailForm extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          decoration: const BoxDecoration(
-            color: Colors.black,
+          decoration:  BoxDecoration(
+            color: backgroundColor,
           ),
           height: getHeight(context),
           child:  Align(
@@ -68,14 +68,14 @@ class EmailForm extends StatelessWidget {
           child: Container(
             height: getHeight(context) * 0.6,
             width: getWidth(context),
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               boxShadow: [
-                BoxShadow(
-                    color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
+                // BoxShadow(
+                //     color: Colors.black, spreadRadius: 0.1, blurRadius: 10)
               ],
-              color: Colors.black,
+              color: backgroundColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -124,7 +124,7 @@ class EmailForm extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: getHeight(context) * 0.2,
+                  height: getHeight(context) * 0.1,
                 ),
                 SizedBox(
                   width: getWidth(context) * 0.5,
@@ -141,7 +141,7 @@ class EmailForm extends StatelessWidget {
                         handleConfirmEmail(context);
                       },
                       child: const Text(
-                        "Confirm Email",
+                        "Send OTP",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
@@ -156,18 +156,21 @@ class EmailForm extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.bottomRight,
-          child: FloatingActionButton(
-            backgroundColor: floatingButtonColor,
-              onPressed: (){},
-              child: IconButton(
-                onPressed: () {
-                  liquidController.animateToPage(
-                      page: liquidController.currentPage - 1,
-                      duration: 150);
-                },
-                icon: const Icon(Icons.arrow_back),
-                color: Colors.white,
-              ),
+          child: Padding(
+            padding: const EdgeInsets.only(right:15,bottom: 20),
+            child: FloatingActionButton(
+              backgroundColor: floatingButtonColor,
+                onPressed: (){},
+                child: IconButton(
+                  onPressed: () {
+                    liquidController.animateToPage(
+                        page: liquidController.currentPage - 1,
+                        duration: 150);
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  color: Colors.white,
+                ),
+            ),
           ),
         ),
       ],
