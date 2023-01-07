@@ -1,5 +1,5 @@
 import 'package:cardup/bloc/login/login_bloc.dart';
-import 'package:cardup/components/pages/homepage.dart';
+import 'package:cardup/components/pages/homepage__.dart';
 import 'package:flutter/material.dart';
 import 'package:cardup/components/atoms/all_atoms.dart';
 import 'package:cardup/modules/utilities.dart';
@@ -22,7 +22,7 @@ class _LoginFormState extends State<LoginForm> {
 
   void handleLogin(context){
     Navigator.of(context).push(MaterialPageRoute(builder: (context){
-      return const HomePage();
+      return const HomePage__();
     }));
   }
 

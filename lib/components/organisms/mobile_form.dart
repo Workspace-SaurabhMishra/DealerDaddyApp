@@ -14,6 +14,10 @@ class MobileForm extends StatelessWidget {
   MobileForm({Key? key, required this.liquidController}) : super(key: key);
 
   handleOnPressed(context) {
+    liquidController.animateToPage(
+        page: liquidController.currentPage + 1, duration: 250);
+    //Todo: remove this
+
     String phoneNumber = textEditingController.text;
     BlocProvider.of<SignupBloc>(context)
         .add(SubmitMobileEvent(phoneNumber: "+91$phoneNumber"));

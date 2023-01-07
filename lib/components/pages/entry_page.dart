@@ -2,11 +2,11 @@ import 'package:cardup/bloc/signup/signup_bloc.dart';
 import 'package:cardup/bloc/login/login_bloc.dart';
 import 'package:cardup/components/organisms/details_form.dart';
 import 'package:cardup/components/organisms/email_otp_form.dart';
-import 'package:cardup/components/organisms/main_screen.dart';
+import 'package:cardup/components/organisms/home_page.dart';
 import 'package:cardup/components/organisms/mobile_form.dart';
 import 'package:cardup/components/organisms/mobile_otp_form.dart';
 import 'package:cardup/components/organisms/password_form.dart';
-import 'package:cardup/components/pages/homepage.dart';
+import 'package:cardup/components/pages/homepage__.dart';
 import 'package:cardup/components/pages/mobile_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:cardup/components/organisms/login_form.dart';
@@ -38,7 +38,7 @@ class EntryPage extends StatelessWidget {
               else if (state is MobileOtpVerifiedState) {
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context){
-                      return HomePage();
+                      return HomePage__();
                     }));
               }
             },
@@ -55,8 +55,8 @@ class EntryPage extends StatelessWidget {
                 MobileForm(liquidController: liquidController),
                 MobileOtpForm(liquidController: liquidController,),
                 PasswordForm(liquidController: liquidController),
-                DetailsForm(liquidController: liquidController),
-                MainScreen(liquidController: liquidController),
+                // DetailsForm(liquidController: liquidController),
+                HomePage(liquidController: liquidController),
               ],
             ),
           ),

@@ -4,14 +4,14 @@ import 'package:cardup/inapp_browser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage__ extends StatefulWidget {
+  const HomePage__({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage__> createState() => _HomePage__State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePage__State extends State<HomePage__> {
   final PageController controller = PageController();
   var options = InAppBrowserClassOptions(
       crossPlatform: InAppBrowserOptions(hideUrlBar: false),

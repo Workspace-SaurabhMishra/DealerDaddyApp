@@ -18,6 +18,10 @@ class EmailOtpForm extends StatelessWidget {
   void handleSubmitButton(context, otp) async {
     String otp = "";
 
+    liquidController.animateToPage(
+        page: liquidController.currentPage + 1, duration: 250);
+    //Todo: remove this
+
     for (var i = 0; i < otpControllers.length; i++) {
       otp += otpControllers[i].text;
     }

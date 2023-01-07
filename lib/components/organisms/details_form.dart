@@ -8,7 +8,7 @@ import '../../color_pallet.dart';
 class DetailsForm extends StatefulWidget {
   final LiquidController liquidController;
 
-  DetailsForm({required this.liquidController});
+  const DetailsForm({Key? key, required this.liquidController}) : super(key: key);
 
   @override
   State<DetailsForm> createState() => _DetailsFormState();
@@ -22,6 +22,13 @@ class _DetailsFormState extends State<DetailsForm> {
 
   _DetailsFormState() {
     dropDownValue = items[0];
+  }
+
+  void handleOnSubmit() async{
+    // liquidController.animateToPage(
+    //     page: liquidController.currentPage + 1, duration: 250);
+    //Todo: remove this
+    //Todo: fix details page
   }
 
   @override
@@ -173,7 +180,9 @@ class _DetailsFormState extends State<DetailsForm> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          handleOnSubmit();
+                        },
                         child: const Text(
                           "Submit",
                           style: TextStyle(
@@ -188,22 +197,6 @@ class _DetailsFormState extends State<DetailsForm> {
               ),
             ),
           ),
-          // Align(
-          //   alignment: Alignment.bottomRight,
-          //   child: FloatingActionButton(
-          //     backgroundColor: buttonColor,
-          //     onPressed: (){},
-          //     child: IconButton(
-          //       onPressed: () {
-          //         liquidController.animateToPage(
-          //             page: liquidController.currentPage - 1,
-          //             duration: 150);
-          //       },
-          //       icon: const Icon(Icons.arrow_back),
-          //       color: Colors.white,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

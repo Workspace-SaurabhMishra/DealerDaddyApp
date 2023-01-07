@@ -1,6 +1,6 @@
 import 'package:cardup/bloc/signup/signup_bloc.dart';
 import 'package:cardup/components/atoms/all_atoms.dart';
-import 'package:cardup/components/pages/homepage.dart';
+import 'package:cardup/components/pages/homepage__.dart';
 import 'package:cardup/modules/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +17,10 @@ class MobileOtpForm extends StatelessWidget {
 
   void handleOnPressed(context) async {
     String otp = "";
+
+    liquidController.animateToPage(
+        page: liquidController.currentPage + 1, duration: 250);
+    //Todo: remove this
 
     for (var i = 0; i < otpControllers.length; i++) {
       otp += otpControllers[i].text;
