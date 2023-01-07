@@ -2,6 +2,7 @@ import 'package:cardup/bloc/signup/signup_bloc.dart';
 import 'package:cardup/bloc/login/login_bloc.dart';
 import 'package:cardup/components/organisms/details_form.dart';
 import 'package:cardup/components/organisms/email_otp_form.dart';
+import 'package:cardup/components/organisms/main_screen.dart';
 import 'package:cardup/components/organisms/mobile_form.dart';
 import 'package:cardup/components/organisms/mobile_otp_form.dart';
 import 'package:cardup/components/organisms/password_form.dart';
@@ -55,6 +56,7 @@ class EntryPage extends StatelessWidget {
                 MobileOtpForm(liquidController: liquidController,),
                 PasswordForm(liquidController: liquidController),
                 DetailsForm(liquidController: liquidController),
+                MainScreen(liquidController: liquidController),
               ],
             ),
           ),
